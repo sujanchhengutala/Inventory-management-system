@@ -26,7 +26,7 @@ class ItemsType(models.Model):
 class Department(models.Model):
     name = models.CharField(max_length=100)
     floor = models.IntegerField()
-    description = models.TextField(default='department')
+    description = models.TextField()
 
 #==================================================================== 
 #==================================================================== 
@@ -36,7 +36,7 @@ class Item(models.Model):
     type = models.ForeignKey(ItemsType, on_delete=models.SET_NULL, null=True)
     description = models.TextField(default='This is a item')
     quantity = models.IntegerField()
-    department = models.ManyToManyField(Department)
+    department = models.ManyToManyField(Department, default="")
 
 #==================================================================== 
 #==================================================================== 
